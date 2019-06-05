@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  <form  method="post">
+    {%csrf_token%}
+    <!-- DeleteView class gives name of that object automatically is 'object' -->
+    <p>Are you sure you want to delete {{ object }}?</p>
+    <input type="submit" class="btn btn-danger"  value="Confirm">
+  </form>
+
+
+{% endblock %}
