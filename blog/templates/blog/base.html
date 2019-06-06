@@ -12,6 +12,9 @@
     <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
 
+    <!-- font-awsome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <!-- Custom css -->
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 
@@ -19,40 +22,39 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One&display=swap" rel="stylesheet">
 
   </head>
-  <body class="loader">
+  <body>
 
       <!-- NAVBAR -->
-      <nav class="navbar navbar-default techfont custom-navbar">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark techfont  custom-navbar">
         <div class="container">
           <ul class="nav navbar-nav">
-            <li> <a class="navbar-brand bigbrand" href="{% url post_list %}">My blog</a> </li>\
-            <li> <a href="{% url 'about' %}"></a>About</li>
-            <li> <a href="https://github.com/Pal9k">Github</a> </li>
-            <li> <a href="https://in.linkedin.com/in/palak-vasara-97114a14b">LinkedIn</a> </li>
+            <li class="nav-item"> <a class="navbar-brand bigbrand" href="{% url 'post_list' %}">My blog</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item"> <a class="nav-link" href="https://github.com/Pal9k">Github</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="https://in.linkedin.com/in/palak-vasara-97114a14b">LinkedIn</a> </li>
           </ul>
 
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav">
             {% if user.is_authenticated %}
 
-            <li>
-              <a href="{% url 'post_new' %}">New Post</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'post_new' %}">New Post</a>
             </li>
-            <li>
-              <a href="{% url 'post_draft_list' %}">Drafts</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'post_draft_list' %}">Drafts</a>
             </li>
-            <li>
-              <a href="{% url 'logout' %}">Log Out</a>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
             </li>
-            <li>
-              <a>Welcome: {{user.username}}</a>
+            <li class="nav-item">
+              <a class="nav-link" style="color:white;">Welcome: {{user.username}}</a>
             </li>
             {% else %}
-            <!-- glyphicon is bootstap`s inbuilt icon comes up with it -->
-            <li> <a class="nav navbar-right" href="{% url 'login' %}"> <span class="glyphicon glyphicon-user"></span> </a> </li>
+
+            <li> <a class="nav navbar-right" href="{% url 'login' %}"> <span><i class="fa fa-user" aria-hidden="true"></i></span> </a> </li>
 
             {% endif %}
           </ul>
-
 
         </div>
 

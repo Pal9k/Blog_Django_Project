@@ -12,8 +12,8 @@
   <!-- {url 'blog:login'} is assentially same as we used below -->
   <form action="{% url 'login' %}" method="POST">
     {% csrf_token %}
-    {% form.as_p %}
-    <input type="submit" class="btn btn-primary" value="Login">  
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Login">
     <input type="hidden" name="next" value="{{next}}">
 
   </form>
