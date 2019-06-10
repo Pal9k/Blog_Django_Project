@@ -23,5 +23,5 @@ urlpatterns = [
     path('',include('blog.urls')),
     path('accounts/login/',views.LoginView.as_view(),name='login'),
     # 'next_page' in kwargs defines next page tobe shown after user loged out
-    path('accounts/logout/',views.LogoutView.as_view(),name='logout',kwargs={'next_page':'/'}),
+    path('accounts/logout/',views.LogoutView.as_view(next_page='/'),name='logout',kwargs={'next_page':'/'}),
 ]
